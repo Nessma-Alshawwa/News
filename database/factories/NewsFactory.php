@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\News;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class NewsFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = News::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'title'    =>   $this->faker->text(30),
+            'disc'     =>   $this->faker->text(50),
+            'contents' =>   $this->faker->text(500),
+            'add_by'   =>   $this->faker->text(30),
+            'status'   =>   'active',
+
+        ];
+    }
+}
