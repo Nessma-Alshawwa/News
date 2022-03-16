@@ -15,10 +15,11 @@ class NewsController extends Controller
     public function get_news(){
         $news_id = \request('news_id');
         $row = News::find($news_id);
-//        dd($row);
         return view('post',compact('row'));
     }
-
+    public function create_new(){
+        return view('add-new');
+    }
     public function add_news(){
         $this->validate(\request(), [
             'title' =>'required',

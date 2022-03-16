@@ -13,17 +13,17 @@ use App\Http\Controllers\NewsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [NewsController::class , 'get_all_news'])->name('home');
 
 Route::pattern('id','[0-9]+');
 
-Route::get('home', [NewsController::class , 'get_all_news'])->name('home');
+// Route::get('home', [NewsController::class , 'get_all_news'])->name('home');
 
 Route::get('post/{news_id}', [NewsController::class , 'get_news'])->name('post');
 
 Route::post('add_news', [NewsController::class , 'add_news'])-> name('add_news');
+
+Route::get('create_new', [NewsController::class , 'create_new'])-> name('create_new');
 
 Route::get('delete_news/{id}', [NewsController::class , 'delete_news'])->where('id','[0-9]+')->name('delete_news');
 
